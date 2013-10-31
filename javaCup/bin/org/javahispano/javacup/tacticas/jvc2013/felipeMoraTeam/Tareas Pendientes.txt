@@ -1,0 +1,18 @@
+Tareas Pendientes
+
+HECHO	- Revisar tiros a puerta, fallamos mucho
+HECHO	- Tiros desde fuera del área cuando ponen autobús
+HECHO	- Evitar fuera de juego con cualquier jugador, no solo delanteros, genérico en player.
+HECHO	- Basculación
+HECHO PARA CORNERS	- Colocación en los saques, aprovechando las iteraciones 'no jugables'
+HECHO	- Colocación para presión y recuperación de la línea defensiva
+HECHO	- Colocación para el fuera de juego de la línea defensiva
+HECHO	- Afinar módulo de pases general
+HECHO	- Utilizar módulo de pases en saques
+HECHO	- Pases al hueco
+NO APLICA	- Limitar conducción de los laterales (la pierden por no soltarla)
+HECHO	- Juego de los extremos, subir y centrar, ir hacia portería y pegarle, intentar paredes con los medios
+HECHO	- Depurar portero ***salidas uno contra uno pulgarcitos
+- Segundo Equipo
+
+- Centrales. Posicionamiento respecto al delantero.

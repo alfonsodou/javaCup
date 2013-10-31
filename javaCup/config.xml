@@ -1,0 +1,37 @@
+<org.javahispano.javacup.gui.principal.PrincipalDatos>
+  <dir>/home/adou/workspace/javacup2013</dir>
+  <sx>800</sx>
+  <sy>600</sy>
+  <fullscreen>false</fullscreen>
+  <maximizado>false</maximizado>
+  <marcador>true</marcador>
+  <entrada>true</entrada>
+  <guardar>false</guardar>
+  <entorno>true</entorno>
+  <estadio>true</estadio>
+  <autoescala>true</autoescala>
+  <numeros>true</numeros>
+  <sonidos>true</sonidos>
+  <jugadores3d>false</jugadores3d>
+  <buffer>true</buffer>
+  <estadioIdx>0</estadioIdx>
+  <escala>15.0</escala>
+  <ubicacion>
+    <x>200</x>
+    <y>200</y>
+    <width>640</width>
+    <height>480</height>
+  </ubicacion>
+  <splitpos>0</splitpos>
+  <tab>0</tab>
+  <visor>1</visor>
+  <volumenAmbiente>0.5</volumenAmbiente>
+  <volumenCancha>0.5</volumenCancha>
+  <dibujaJugadores>true</dibujaJugadores>
+  <dobleBuffer>true</dobleBuffer>
+  <fps>20</fps>
+  <tipoTexto>0</tipoTexto>
+  <local>org.javahispano.javacup.tacticas.jvc2013.romedal.RomedalTeam</local>
+  <visita>org.javahispano.javacup.tacticas.jvc2013.masia13.Masia</visita>
+  <guardados/>
+</org.javahispano.javacup.gui.principal.PrincipalDatos>
