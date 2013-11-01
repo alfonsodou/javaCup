@@ -1,4 +1,4 @@
-package org.javahispano.javacup.model.util;
+package org.javahispano.javaleague.javacup.shared;
 
 public interface Agent {
 

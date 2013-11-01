@@ -4,9 +4,9 @@
 package org.javahispano.javacup.model.engine;
 
 import org.javahispano.javacup.model.Tactic;
-import org.javahispano.javacup.model.util.Agent;
 import org.javahispano.javacup.model.util.Compressor;
 import org.javahispano.javacup.model.util.Serializer;
+import org.javahispano.javaleague.javacup.shared.Agent;
 
 
 /**
