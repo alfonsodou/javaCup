@@ -17,6 +17,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
@@ -28,15 +29,15 @@ import org.javahispano.javacup.model.TacticDetail;
 import org.javahispano.javacup.model.util.Color;
 import org.javahispano.javacup.model.util.Constants;
 import org.javahispano.javacup.model.util.Position;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 /**
  * Clase usada para cargar y guardar partidos, uso interno
  */
 public final class PartidoGuardado implements PartidoInterface, Serializable {
 
-    private static Logger logger = LoggerFactory.getLogger(PartidoGuardado.class);
+    //private static Logger logger = LoggerFactory.getLogger(PartidoGuardado.class);
+    private static Logger logger = Logger.getLogger(PartidoGuardado.class.getName());
     private static final long serialVersionUID = 1L;
     transient private int tiempo = -1;
     transient private Iteracion iteracion;
@@ -226,7 +227,7 @@ public final class PartidoGuardado implements PartidoInterface, Serializable {
             pg = PartidoGuardado.load(url);
             this.url = url;
         } catch (Exception ex) {
-            logger.error("Error al cargar partido guardado", ex);
+            logger.severe("Error al cargar partido guardado: " + ex.getMessage());
         }
         detalleLocal = pg.detalleLocal;
         detalleVisita = pg.detalleVisita;
@@ -329,7 +330,7 @@ public final class PartidoGuardado implements PartidoInterface, Serializable {
             }
         }
         if (e != null) {
-            logger.error("Error al cargar partido guardado", e);
+            logger.severe("Error al cargar partido guardado: " + e.getMessage());
             if (SHOWFRAME) {
                 frame.setVisible(false);
                 frame.dispose();
@@ -379,7 +380,7 @@ public final class PartidoGuardado implements PartidoInterface, Serializable {
             }
         }
         if (e != null) {
-            logger.error("Error al guardar partido", e);
+            logger.severe("Error al guardar partido: " + e.getMessage());
             throw e;
         }
     }

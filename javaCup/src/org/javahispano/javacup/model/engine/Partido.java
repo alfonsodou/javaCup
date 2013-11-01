@@ -1,29 +1,31 @@
 package org.javahispano.javacup.model.engine;
 
-import org.javahispano.javacup.model.TacticDetail;
-import org.javahispano.javacup.model.PlayerDetail;
-import org.javahispano.javacup.model.command.CommandHitBall;
-import org.javahispano.javacup.model.command.Command;
-import org.javahispano.javacup.model.command.CommandMoveTo;
-import org.javahispano.javacup.model.command.Command.CommandType;
-import org.javahispano.javacup.model.trajectory.AbstractTrajectory;
-import org.javahispano.javacup.model.trajectory.FloorTrajectory;
-import org.javahispano.javacup.model.trajectory.AirTrajectory;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Logger;
+
+import org.javahispano.javacup.model.PlayerDetail;
 import org.javahispano.javacup.model.Tactic;
+import org.javahispano.javacup.model.TacticDetail;
+import org.javahispano.javacup.model.command.Command;
+import org.javahispano.javacup.model.command.CommandHitBall;
+import org.javahispano.javacup.model.command.CommandMoveTo;
+import org.javahispano.javacup.model.trajectory.AbstractTrajectory;
+import org.javahispano.javacup.model.trajectory.AirTrajectory;
+import org.javahispano.javacup.model.trajectory.FloorTrajectory;
 import org.javahispano.javacup.model.util.Constants;
 import org.javahispano.javacup.model.util.Position;
 import org.javahispano.javacup.model.util.TacticValidate;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 /**Esta clase se encarga de la ejecucion de partidos*/
 public final class Partido implements PartidoInterface {
 
-    private static Logger logger = LoggerFactory.getLogger(Partido.class);
+    //private static Logger logger = LoggerFactory.getLogger(Partido.class);
+	private static Logger logger = Logger.getLogger(Partido.class.getName());
+    
     private Tactic tacticaLocal, tacticaVisita;//tactica local y visita
     private GameSituations spLocal = new GameSituations(), spVisita = new GameSituations();//situacion del partido, version local y visita
     private Position balon = new Position(Constants.centroCampoJuego);//posicion del ballPosition
@@ -639,13 +641,13 @@ public final class Partido implements PartidoInterface {
         try {
             comandosLocales = tacticaLocal.execute(spLocal);//envia la situacion del partido y obtiene los comandos de la tactica local
         } catch (Exception e) {
-            logger.error("Error al ejecutar tactica local", e);
+            logger.severe("Error al ejecutar tactica local: " + e.getMessage());
         }
         List<Command> comandosVisita = new LinkedList<Command>();
         try {
             comandosVisita = tacticaVisita.execute(spVisita);//envia la situacion del partido y obtiene los comandos de la tactica visita
         } catch (Exception e) {
-            logger.error("Error al ejecutar tactica visita", e);
+            logger.severe("Error al ejecutar tactica visita: " + e.getMessage());
         }
         
         executeCommands(comandosLocales, comandosVisita);//ejecuta los comandos
@@ -1326,7 +1328,7 @@ public final class Partido implements PartidoInterface {
             try {
                 iterar();
             } catch (Exception e) {
-                logger.error("Error al iterar", e);
+                logger.severe("Error al iterar: " + e.getMessage());
             }
         }
         
