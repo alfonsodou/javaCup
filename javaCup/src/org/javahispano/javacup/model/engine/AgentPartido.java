@@ -7,6 +7,7 @@ import org.javahispano.javacup.model.Tactic;
 import org.javahispano.javacup.model.util.Compressor;
 import org.javahispano.javacup.model.util.Serializer;
 import org.javahispano.javaleague.javacup.shared.Agent;
+import org.javahispano.javaleague.javacup.shared.MatchShared;
 
 
 /**
@@ -16,8 +17,9 @@ import org.javahispano.javaleague.javacup.shared.Agent;
 public class AgentPartido implements Agent {
 
 	@Override
-	public byte[] execute(Object l, Object v) throws Exception {
+	public MatchShared execute(Object l, Object v) throws Exception {
 		Partido partido;
+		MatchShared matchShared = new MatchShared();
 
 		partido = new Partido((Tactic) l, (Tactic) v, true);
 		int iter = 0;
@@ -29,8 +31,13 @@ public class AgentPartido implements Agent {
 			}
 		}
 
-		return Compressor.compress(Serializer.serialize(
-				partido.getPartidoGuardado()), partido.toString());
+		matchShared.setMatch(Compressor.compress(Serializer.serialize(
+				partido.getPartidoGuardado()), partido.toString()));
+		matchShared.setGoalsLocal(partido.getGolesLocal());
+		matchShared.setGoalsVisiting(partido.getGolesVisita());
+		matchShared.setPosessionLocal(partido.getPosesionBalonLocal());
+		
+		return matchShared;
 
 	}
 
