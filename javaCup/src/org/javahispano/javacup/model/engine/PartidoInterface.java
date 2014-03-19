@@ -73,5 +73,11 @@ public interface PartidoInterface {
     
     /**Retorna si se ha producido una falta que da lugar a un tiro libre indirecto**/
     public boolean isLibreIndirecto();    
+    
+    /**Retorna el tiempo empleado en ejecutarse la táctica local por cada iteración**/
+    public long[] getLocalTime();
+
+    /**Retorna el tiempo empleado en ejecutarse la táctica visitante por cada iteración**/
+    public long[] getVisitaTime();
 
 }

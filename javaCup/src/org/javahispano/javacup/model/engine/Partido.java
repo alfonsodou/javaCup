@@ -98,6 +98,9 @@ public final class Partido implements PartidoInterface {
     private final int EQUIPO_VISITANTE = 1;
 
     private int iterGolAnulado = 0;
+    
+    private long timeLocal; // Tiempo empleado en ejecutar la táctica local en una iteración
+    private long timeVisita; // Tiempo empleado en ejecutar la táctica visitante en una iteración
 
     @Override
     public boolean fueGrabado() {
@@ -558,7 +561,7 @@ public final class Partido implements PartidoInterface {
    
         updatePosiciones();
         if (save) {
-            guardado.partido.add(new Iteracion(gol, poste, rebote, ovacion, remate, sacaLocal | sacaVisita, silbato, cambioSaque, isOffSide, isLibreIndirecto(), alturaBalon, getPosVisibleBalon(), getPosiciones(), iteracion, golesLocal, golesVisita, getPosesionBalonLocal()));
+            guardado.partido.add(new Iteracion(gol, poste, rebote, ovacion, remate, sacaLocal | sacaVisita, silbato, cambioSaque, isOffSide, isLibreIndirecto(), alturaBalon, getPosVisibleBalon(), getPosiciones(), iteracion, golesLocal, golesVisita, getPosesionBalonLocal(), timeLocal, timeVisita));
         }
     }
 
@@ -630,6 +633,7 @@ public final class Partido implements PartidoInterface {
     /**Ejecuta una iteration durande la ejecucion de un partido, enviando el estado del partido a
     cada tactica participante*/
     private void iterarJuego() {
+    	long startTime;
     	
         isOffSide = false; // se setea el fuera de juego
         saque = NO_ES_SAQUE; //se setea el saque
@@ -639,13 +643,17 @@ public final class Partido implements PartidoInterface {
                        
         List<Command> comandosLocales = new LinkedList<Command>();
         try {
+        	startTime = System.currentTimeMillis();
             comandosLocales = tacticaLocal.execute(spLocal);//envia la situacion del partido y obtiene los comandos de la tactica local
+        	timeLocal = System.currentTimeMillis() - startTime;
         } catch (Exception e) {
             logger.severe("Error al ejecutar tactica local: " + e.getMessage());
         }
         List<Command> comandosVisita = new LinkedList<Command>();
         try {
+        	startTime = System.currentTimeMillis();
             comandosVisita = tacticaVisita.execute(spVisita);//envia la situacion del partido y obtiene los comandos de la tactica visita
+        	timeVisita = System.currentTimeMillis() - startTime;
         } catch (Exception e) {
             logger.severe("Error al ejecutar tactica visita: " + e.getMessage());
         }
@@ -1626,5 +1634,23 @@ public final class Partido implements PartidoInterface {
         }
         
     }
+
+	@Override
+	public long[] getLocalTime() {
+		long[] result = new long[Constants.ITERACIONES];
+		for(int i = 0; i < Constants.ITERACIONES; i++) {
+			result[i] = guardado.partido.get(i).timeLocal;
+		}
+		return result;
+	}
+
+	@Override
+	public long[] getVisitaTime() {
+		long[] result = new long[Constants.ITERACIONES];
+		for(int i = 0; i < Constants.ITERACIONES; i++) {
+			result[i] = guardado.partido.get(i).timeVisita;
+		}
+		return result;
+	}
     
 }

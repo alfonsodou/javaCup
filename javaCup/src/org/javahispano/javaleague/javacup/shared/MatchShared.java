@@ -10,17 +10,51 @@ package org.javahispano.javaleague.javacup.shared;
 public class MatchShared {
 
 	private byte[] match;
+	private byte[] matchBin;
 	private int goalsLocal;
 	private int goalsVisiting;
 	private double posessionLocal;
 	private int state;
+	private long[] timeLocal;
+	private long[] timeVisita;
 	
 	public MatchShared() {
 		this.match = null;
+		this.matchBin = null;
 		this.goalsLocal = 0;
 		this.goalsVisiting = 0;
 		this.posessionLocal = 0;
 		this.state = 0;
+		this.timeLocal = null;
+		this.timeVisita = null;
+	}
+
+	/**
+	 * @return the timeLocal
+	 */
+	public long[] getTimeLocal() {
+		return timeLocal;
+	}
+
+	/**
+	 * @param timeLocal the timeLocal to set
+	 */
+	public void setTimeLocal(long[] timeLocal) {
+		this.timeLocal = timeLocal;
+	}
+
+	/**
+	 * @return the timeVisita
+	 */
+	public long[] getTimeVisita() {
+		return timeVisita;
+	}
+
+	/**
+	 * @param timeVisita the timeVisita to set
+	 */
+	public void setTimeVisita(long[] timeVisita) {
+		this.timeVisita = timeVisita;
 	}
 
 	/**
@@ -91,6 +125,20 @@ public class MatchShared {
 	 */
 	public void setState(int state) {
 		this.state = state;
+	}
+
+	/**
+	 * @return the matchBin
+	 */
+	public byte[] getMatchBin() {
+		return matchBin;
+	}
+
+	/**
+	 * @param matchBin the matchBin to set
+	 */
+	public void setMatchBin(byte[] matchBin) {
+		this.matchBin = matchBin;
 	}
 	
 	

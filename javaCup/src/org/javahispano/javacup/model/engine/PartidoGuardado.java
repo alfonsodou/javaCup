@@ -1,6 +1,7 @@
 package org.javahispano.javacup.model.engine;
 
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -479,6 +480,19 @@ public final class PartidoGuardado implements PartidoInterface, Serializable {
             iterationStream(fos, partido);
         }
     }
+    
+    public byte[] binaryServe() throws IOException, Exception {
+    	ByteArrayOutputStream bos = new ByteArrayOutputStream();
+    	try  {
+            detail2Stream(bos, detalleLocal, detalleVisita);
+            shorts2Stream(bos, (short) partido.size());
+            iterationStream(bos, partido);		
+    	} finally {
+    		logger.info("Partido en modo binario");
+    	}
+    	
+    	return bos.toByteArray();
+    }
 
     public static ArrayList<File> getFiles(ArrayList<File> files, File parentDir) {
         if (files == null) {
@@ -501,4 +515,22 @@ public final class PartidoGuardado implements PartidoInterface, Serializable {
             new PartidoGuardado(f.toURL()).binarySave(new File(f.getAbsolutePath() + "web"));
         }
     }
+
+	@Override
+	public long[] getLocalTime() {
+		long[] result = new long[Constants.ITERACIONES];
+		for(int i = 0; i < Constants.ITERACIONES; i++) {
+			result[i] = partido.get(i).timeLocal;
+		}
+		return result;
+	}
+
+	@Override
+	public long[] getVisitaTime() {
+		long[] result = new long[Constants.ITERACIONES];
+		for(int i = 0; i < Constants.ITERACIONES; i++) {
+			result[i] = partido.get(i).timeVisita;
+		}
+		return result;
+	}
 }

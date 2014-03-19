@@ -26,10 +26,12 @@ final class Iteracion implements Serializable {
 	int golesLocal;
 	int golesVisita;
 	short posecionBalonLocal;
+	long timeLocal;
+	long timeVisita;
 
 	public Iteracion(boolean gol, boolean poste, boolean rebotando, boolean ovacionando, boolean rematando, boolean sacando,
 			boolean silbando, boolean cambioSaque, boolean offSide, boolean libreIndirecto, double alturaBalon, Position posVisibleBalon, Position[][] posiciones,
-			int iteracion, int golesLocal, int golesVisita, double posecionBalonLocal) {
+			int iteracion, int golesLocal, int golesVisita, double posecionBalonLocal, long timeLocal, long timeVisita) {
 		this.gol = gol;
 		this.poste = poste;
 		this.rebotando = rebotando;
@@ -62,6 +64,8 @@ final class Iteracion implements Serializable {
 		this.golesLocal = golesLocal;
 		this.golesVisita = golesVisita;
 		this.posecionBalonLocal = (short)( posecionBalonLocal*256d);
+		this.timeLocal = timeLocal;
+		this.timeVisita = timeVisita;
 	}
 
 }

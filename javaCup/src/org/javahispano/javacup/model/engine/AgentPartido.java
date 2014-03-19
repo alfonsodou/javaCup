@@ -9,7 +9,6 @@ import org.javahispano.javacup.model.util.Serializer;
 import org.javahispano.javaleague.javacup.shared.Agent;
 import org.javahispano.javaleague.javacup.shared.MatchShared;
 
-
 /**
  * @author adou
  * 
@@ -31,19 +30,25 @@ public class AgentPartido implements Agent {
 			}
 		}
 
-		matchShared.setMatch(Compressor.compress(Serializer.serialize(
-				partido.getPartidoGuardado()), partido.toString()));
+		matchShared.setMatch(Compressor.compress(
+				Serializer.serialize(partido.getPartidoGuardado()),
+				partido.toString()));
+		matchShared.setMatchBin(Compressor.compress(Serializer
+				.serialize(partido.getPartidoGuardado().binaryServe()), partido
+				.toString()));
 		matchShared.setGoalsLocal(partido.getGolesLocal());
 		matchShared.setGoalsVisiting(partido.getGolesVisita());
 		matchShared.setPosessionLocal(partido.getPosesionBalonLocal());
-		
+		matchShared.setTimeLocal(partido.getPartidoGuardado().getLocalTime());
+		matchShared.setTimeVisita(partido.getPartidoGuardado().getVisitaTime());
+
 		return matchShared;
 
 	}
 
 	@Override
 	public boolean isTactic(Class<?> t) throws Exception {
-		
+
 		return Tactic.class.isAssignableFrom(t);
 	}
 
