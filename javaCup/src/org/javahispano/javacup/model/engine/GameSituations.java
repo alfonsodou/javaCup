@@ -394,6 +394,19 @@ private	void calculateOffSidePlayers() {
 	    }   
 	
 	}
+
+	protected void setStartTime(long start) {
+		startTime = start;
+	}
+	
+	/**
+	 * Retorna el tiempo consumido en la ejecución de la táctica
+	 * @return
+	 */
+	public long getTime() {
+		return System.nanoTime() - startTime;
+	}
+	
 	private Position balon = new Position();
     private double alturaBalon;
     private int golesMios, golesContrarios, iteracion, iterReal;
@@ -412,5 +425,6 @@ private	void calculateOffSidePlayers() {
     private Aceleracion miAceleracion[] = new Aceleracion[11];
     private Aceleracion rivalAceleracion[] = new Aceleracion[11];
     private boolean offSidePlayers[] = new boolean[11];
+    private long startTime; // Para obtener el tiempo utilizado en la ejecución de la táctica
 
 }

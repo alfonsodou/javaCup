@@ -643,17 +643,19 @@ public final class Partido implements PartidoInterface {
                        
         List<Command> comandosLocales = new LinkedList<Command>();
         try {
-        	startTime = System.currentTimeMillis();
+        	startTime = System.nanoTime();
+        	spLocal.setStartTime(startTime);
             comandosLocales = tacticaLocal.execute(spLocal);//envia la situacion del partido y obtiene los comandos de la tactica local
-        	timeLocal = System.currentTimeMillis() - startTime;
+        	timeLocal = System.nanoTime() - startTime;
         } catch (Exception e) {
             logger.severe("Error al ejecutar tactica local: " + e.getMessage());
         }
         List<Command> comandosVisita = new LinkedList<Command>();
         try {
-        	startTime = System.currentTimeMillis();
+        	startTime = System.nanoTime();
+        	spVisita.setStartTime(startTime);
             comandosVisita = tacticaVisita.execute(spVisita);//envia la situacion del partido y obtiene los comandos de la tactica visita
-        	timeVisita = System.currentTimeMillis() - startTime;
+        	timeVisita = System.nanoTime() - startTime;
         } catch (Exception e) {
             logger.severe("Error al ejecutar tactica visita: " + e.getMessage());
         }

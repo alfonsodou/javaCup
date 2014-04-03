@@ -335,7 +335,7 @@ public class Torneo {
     
   //tacticas ordenadas segun su resultado en la liguilla previa
     private static Class[] tactics = new Class[]{
-    	org.javahispano.javacup.tacticas.jvc2013.masia13.Masia.class,//22 puntos.
+  /*  	org.javahispano.javacup.tacticas.jvc2013.masia13.Masia.class,//22 puntos.
     	org.javahispano.javacup.tacticas.jvc2013.romedal.RomedalTeam.class,//21 puntos.
     	org.javahispano.javacup.tacticas.jvc2013.twentythree.Team2313.class,//18 puntos.
     	org.javahispano.javacup.tacticas.jvc2013.novena.Novena.class,//18 puntos.
@@ -357,7 +357,7 @@ public class Torneo {
     	org.javahispano.javacup.tacticas.jvc2013.sitiostactic2.SitiosTactic2.class,//3 puntos.
     	org.javahispano.javacup.tacticas.jvc2013.enavas.RealUnion.class,//3 puntos.
     	org.javahispano.javacup.tacticas.jvc2013.elaga.Elaga.class,//3 puntos.
-    	org.javahispano.javacup.tacticas.jvc2013.dymcupcakes.DyMTactic.class//0 puntos.
+    	org.javahispano.javacup.tacticas.jvc2013.dymcupcakes.DyMTactic.class//0 puntos.*/
     };
     
 
@@ -365,7 +365,7 @@ public class Torneo {
     private static Class[][] gruposPublicados() {
     	return new Class[][]{
     				// Grupo A
-    				{org.javahispano.javacup.tacticas.jvc2013.novena.Novena.class,
+    	/*			{org.javahispano.javacup.tacticas.jvc2013.novena.Novena.class,
     				org.javahispano.javacup.tacticas.jvc2013.dymcupcakes.DyMTactic.class,
     				org.javahispano.javacup.tacticas.jvc2013.txami.Txami.class,
     				org.javahispano.javacup.tacticas.jvc2013.espinete.Espinete.class,
@@ -394,7 +394,8 @@ public class Torneo {
     				org.javahispano.javacup.tacticas.jvc2013.pistachos.Pistachos.class,
     				org.javahispano.javacup.tacticas.jvc2013.valedores.Valedores.class,
     				org.javahispano.javacup.tacticas.jvc2013.masia13.Masia.class,
-    				},};
+    				
+    				}, */};
     }
     
     static Random r = new Random();
@@ -519,7 +520,7 @@ public class Torneo {
     //array de equipos clasificados en la fase uno
     static Class[][] clasificados = new Class[][]{
     		// Grupo A
-    		{org.javahispano.javacup.tacticas.jvc2013.novena.Novena.class,
+/*    		{org.javahispano.javacup.tacticas.jvc2013.novena.Novena.class,
     		org.javahispano.javacup.tacticas.jvc2013.txami.Txami.class,
     		org.javahispano.javacup.tacticas.jvc2013.espinete.Espinete.class,
     		org.javahispano.javacup.tacticas.jvc2013.felipeMoraTeam.FelipeMoraTeam.class,
@@ -541,7 +542,7 @@ public class Torneo {
     			org.javahispano.javacup.tacticas.jvc2013.pistachos.Pistachos.class,
     			org.javahispano.javacup.tacticas.jvc2013.JGTeam.JGTactic.class,
     		org.javahispano.javacup.tacticas.jvc2013.fortega.Frioleros.class,
-    		}
+    		} */
     	};
     
     //ejecuta la segunda fase (eliminatorias)... guarda los partidos en path
