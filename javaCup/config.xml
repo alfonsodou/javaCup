@@ -23,7 +23,7 @@
     <height>480</height>
   </ubicacion>
   <splitpos>0</splitpos>
-  <tab>1</tab>
+  <tab>0</tab>
   <visor>1</visor>
   <volumenAmbiente>0.5</volumenAmbiente>
   <volumenCancha>0.5</volumenCancha>
@@ -31,10 +31,9 @@
   <dobleBuffer>true</dobleBuffer>
   <fps>20</fps>
   <tipoTexto>0</tipoTexto>
-  <local>org.javahispano.javacup.tacticas.jvc2013.romedal.RomedalTeam</local>
-  <visita>org.javahispano.javacup.tacticas.jvc2013.masia13.Masia</visita>
+  <local>org.javahispano.javaleague.ID_6399715750969344.Pringaos.Pringaos</local>
+  <visita>org.javahispano.javaleague.ID_6399715750969344.Pringaos.Pringaos</visita>
   <guardados>
-    <url>file:/home/adou/Descargas/partido1.jvc</url>
-    <url>file:/home/adou/Descargas/partido2.jvc</url>
+    <url>file:/home/adou/Descargas/5866112637992960.jvc</url>
   </guardados>
 </org.javahispano.javacup.gui.principal.PrincipalDatos>

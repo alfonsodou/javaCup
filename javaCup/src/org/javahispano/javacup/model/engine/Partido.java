@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.javahispano.javacup.model.PlayerDetail;
@@ -15,6 +16,7 @@ import org.javahispano.javacup.model.command.CommandMoveTo;
 import org.javahispano.javacup.model.trajectory.AbstractTrajectory;
 import org.javahispano.javacup.model.trajectory.AirTrajectory;
 import org.javahispano.javacup.model.trajectory.FloorTrajectory;
+import org.javahispano.javacup.model.util.BenchMarck;
 import org.javahispano.javacup.model.util.Constants;
 import org.javahispano.javacup.model.util.Position;
 import org.javahispano.javacup.model.util.TacticValidate;
@@ -142,6 +144,9 @@ public final class Partido implements PartidoInterface {
             energiaVisita[i] = 1;
             
         }
+        
+        BenchMarck benchMark = new BenchMarck();
+        logger.log(Level.INFO, "*** Tiempo benchMark: " + benchMark.getBenchMark() + " ***");
     }
 
     /**Instancia un nuevo partido, indicando la tactica local y la tactica visita*/
@@ -316,7 +321,7 @@ public final class Partido implements PartidoInterface {
             	 * http://www.javahispano.org/foro-de-la-javacup/post/2172752
             	 */
             	if (abs < Constants.LARGO_ARCO / 2 - Constants.RADIO_BALON) {
-            		/* 2013-10-15 :: Modificado para evitar goles imparables
+            		/* Modificado para evitar goles imparables
             		 * 
             		 */
             		if (alturaBalon - balonDz0 > Constants.ALTO_ARCO) {
