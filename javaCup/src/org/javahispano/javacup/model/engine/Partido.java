@@ -16,7 +16,7 @@ import org.javahispano.javacup.model.command.CommandMoveTo;
 import org.javahispano.javacup.model.trajectory.AbstractTrajectory;
 import org.javahispano.javacup.model.trajectory.AirTrajectory;
 import org.javahispano.javacup.model.trajectory.FloorTrajectory;
-import org.javahispano.javacup.model.util.BenchMarck;
+import org.javahispano.javacup.model.util.BenchMark;
 import org.javahispano.javacup.model.util.Constants;
 import org.javahispano.javacup.model.util.Position;
 import org.javahispano.javacup.model.util.TacticValidate;
@@ -145,7 +145,7 @@ public final class Partido implements PartidoInterface {
             
         }
         
-        BenchMarck benchMark = new BenchMarck();
+        BenchMark benchMark = new BenchMark();
         logger.log(Level.INFO, "*** Tiempo benchMark: " + benchMark.getBenchMark() + " ***");
     }
 

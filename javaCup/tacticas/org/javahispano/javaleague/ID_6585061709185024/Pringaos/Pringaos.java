@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.javahispano.javaleague.ID_6399715750969344.Pringaos;
+package org.javahispano.javaleague.ID_6585061709185024.Pringaos;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -231,8 +231,6 @@ public class Pringaos implements Tactic {
 						.getPower(), pases.get(max_index).getAngle()));
 			}
 		}
-		
-		//System.out.println("*** Iteración: " + sp.iteration() + " :: Tiempo consumido: " + sp.getTime() + " ***");
 
 		// Retorna la lista de comandos
 		return comandos;

@@ -7,10 +7,10 @@ package org.javahispano.javacup.model.util;
  * @author adou
  *
  */
-public class BenchMarck {
+public class BenchMark {
 	private double benchMark;
 	
-	public BenchMarck() {
+	public BenchMark() {
 	    long t1 = System.nanoTime();
 
 	    int result = 0;
