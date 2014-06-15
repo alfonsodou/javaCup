@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.javahispano.javaleague.ID_6585061709185024.Pringaos;
+package org.javahispano.javaleague.ID_5818767066005504.Pringaos;
 
 import java.util.LinkedList;
 import java.util.List;

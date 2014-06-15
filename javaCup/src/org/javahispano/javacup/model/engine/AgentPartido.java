@@ -33,9 +33,7 @@ public class AgentPartido implements Agent {
 		matchShared.setMatch(Compressor.compress(
 				Serializer.serialize(partido.getPartidoGuardado()),
 				partido.toString()));
-		matchShared.setMatchBin(Compressor.compress(Serializer
-				.serialize(partido.getPartidoGuardado().binaryServe()), partido
-				.toString()));
+		matchShared.setMatchBin(partido.getPartidoGuardado().binaryServe());
 		matchShared.setGoalsLocal(partido.getGolesLocal());
 		matchShared.setGoalsVisiting(partido.getGolesVisita());
 		matchShared.setPosessionLocal(partido.getPosesionBalonLocal());
